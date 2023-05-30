@@ -1,0 +1,16 @@
+{{ define "main"}}
+    {{ range .Pages }}
+        <div class="col-4">
+            <a href={{absURL .Params.Url}} style="text-decoration: none;">
+                <div class="card text imagebox">
+                    {{ with resources.GetMatch .Params.Thumbnail}}
+                        <img src="{{.Permalink}}" class="img" alt="{{.Title}}">
+                    {{end}}
+                <div class="caption-overlay">
+                  <b>{{.Params.Title}}</b> {{.Params.Description}}
+                </div>
+                </div>
+            </a>
+        {{end}}
+        </div>
+{{ end }}
