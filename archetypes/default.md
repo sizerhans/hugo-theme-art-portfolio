@@ -1,5 +1,6 @@
 ---
 Title: Title
+ListTitle: ListTitle #the text that is displayed below each post on the list pages
 Date: {{ .Date }} #how posts are ordered 
 Url: / #this should be the category of the post and then the file name e.g. /print/printfilename
 Draft: True # change to false when you want to post

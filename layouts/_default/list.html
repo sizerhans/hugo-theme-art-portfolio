@@ -1,16 +1,21 @@
 {{ define "main"}}
+    <div class="row">
     {{ range .Pages }}
         <div class="col-4">
             <a href={{absURL .Params.Url}} style="text-decoration: none;">
-                <div class="card text imagebox">
+                <div class="card text imagebox" style="border: none;">
                     {{ with resources.GetMatch .Params.Thumbnail}}
                         <img src="{{.Permalink}}" class="img" alt="{{.Title}}">
                     {{end}}
-                <div class="caption-overlay">
-                  <b>{{.Params.Title}}</b> {{.Params.Description}}
-                </div>
+                    <p class="caption"> {{.Params.ListTitle}} </p>
                 </div>
             </a>
-        {{end}}
         </div>
+    {{end}}
+    </div>
+        <!--Bugs:
+    Tiny image in list page when the actual image is big
+    Spectral image post on drawings at the navbar
+-->
 {{ end }}
+
