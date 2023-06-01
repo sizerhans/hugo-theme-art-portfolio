@@ -19,7 +19,7 @@ body {
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 
@@ -38,6 +38,10 @@ body {
 #content p {
   max-width: 100%;
   overflow-wrap: break-word;
+}
+
+#content {
+  align-items: center;
 }
 
 .caption { 

@@ -1,23 +1,20 @@
-{{ define "main"}}
-<div class="container">
+{{ define "main" }}
     <div class="row">
-    {{ range .Pages }}
-        <div class="col-4">
+        <br>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-3"></div>
+        <div class="col-6">
             <a href={{absURL .Params.Url}} style="text-decoration: none;">
                 <div class="card text imagebox" style="border: none;">
-                    {{ with resources.GetMatch .Params.Thumbnail}}
+                    {{ with resources.GetMatch .Params.Coverimage}}
                         <img src="{{.Permalink}}" class="img" alt="{{.Title}}">
                     {{end}}
                     <p class="caption"> {{.Params.ListTitle}} </p>
                 </div>
             </a>
         </div>
-    {{end}}
+        <div class="col-3"></div>
     </div>
-</div>
-        <!--Bugs:
-    Tiny image in list page when the actual image is big
-    Spectral image post on drawings at the navbar
--->
-{{ end }}
 
+{{ end }}
