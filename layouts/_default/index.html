@@ -1,20 +1,27 @@
 {{ define "main" }}
+<div class="container">
     <div class="row">
         <br>
+        <h4 style="text-align: center;"> Latest Posts</h4>
     </div>
-    <div class="row align-items-center">
-        <div class="col-3"></div>
-        <div class="col-6">
+    <div class="row">
+        {{ range .Site.RegularPages.ByDate | first 4}}
+        {{ if ne .Title "About"}}
+        {{ if ne .Title "Isabella Tessier"}}
+        <div class="col-4">
             <a href={{absURL .Params.Url}} style="text-decoration: none;">
                 <div class="card text imagebox" style="border: none;">
-                    {{ with resources.GetMatch .Params.Coverimage}}
+                    {{ with resources.GetMatch .Params.Thumbnail}}
                         <img src="{{.Permalink}}" class="img" alt="{{.Title}}">
                     {{end}}
                     <p class="caption"> {{.Params.ListTitle}} </p>
                 </div>
             </a>
         </div>
-        <div class="col-3"></div>
+        {{end }}
+        {{ end }}
+        {{end }}
+        
     </div>
-
+</div>
 {{ end }}
