@@ -1,0 +1,24 @@
+{{ define "main" }}
+  <div class="row" id="postcard" style="background-color: #adad85;">
+    <div class="col-4 text-center">
+      <div class="row" id="postcardtext">
+        <h1>{{ .Params.Title }}</h1>
+        <h6>{{ .Params.Description}}</h6>
+      </div>
+    </div>
+    <div class="col-8 text-center" id="postcard">
+      {{ with resources.Get .Params.Coverimage}}
+        <img src="{{.Permalink}}" class="img" alt="f">
+      {{end}}
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm 12 col-md-6 col-lg-6" id="content">
+      <br>
+      {{.Content}}
+    </div>
+    <!--{{ partial "partials/related.html" . }}-->
+  </div>
+</div>
+{{ end }}
+    

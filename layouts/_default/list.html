@@ -1,0 +1,23 @@
+{{ define "main"}}
+<div class="container-fluid">
+    <div class="row" data-masonry='{"percentPosition": true }'>
+    {{ range .Pages }}
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <a href={{absURL .Params.Url}} style="text-decoration: none;">
+                <div class="card text imagebox box-masonry" style="border: none;">
+                    {{ with resources.GetMatch .Params.Thumbnail}}
+                        <img src="{{.Permalink}}" class="img box-masonry-image" alt="{{.Title}}">
+                    {{end}}
+                    <p class="caption"> {{.Params.ListTitle}} </p>
+                </div>
+            </a>
+        </div>
+    {{end}}
+    </div>
+</div>
+        <!--Bugs:
+    Tiny image in list page when the actual image is big
+    Spectral image post on drawings at the navbar
+-->
+{{ end }}
+

@@ -1,0 +1,21 @@
+{{ define "main" }}
+    <div class="row" data-masonry='{"percentPosition": true }'>
+        {{ range .Site.RegularPages.ByDate | first 10  }}
+        {{ if ne .Title "About"}}
+        {{ if ne .Title "Isabella Tessier"}}
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <a href={{absURL .Params.Url}} style="text-decoration: none;">
+                <div class="card text imagebox" style="border: none;">
+                    {{ with resources.GetMatch .Params.Thumbnail}}
+                        <img src="{{.Permalink}}" class="img" alt="{{.Title}}">
+                    {{end}}
+                    <p class="caption"> {{.Params.ListTitle}} </p>
+                </div>
+            </a>
+        </div>
+        {{end }}
+        {{ end }}
+        {{end }}
+        
+    </div>
+{{ end }}

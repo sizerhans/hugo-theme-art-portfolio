@@ -1,0 +1,16 @@
+<div class="relatedPosts">
+    <h2>Related Posts</h2>
+    {{ $currentPage := . }}
+{{ $currentTags := $currentPage.Params.tags }}
+{{ $relatedPosts := slice }}
+{{ range .Site.RegularPages }}
+  {{ $isCurrent := eq .Permalink $currentPage.Permalink }}
+  {{ $hasCommonTags := intersect .Params.tags $currentTags }}
+  {{ if and (not $isCurrent) $hasCommonTags }}
+    {{ $relatedPosts = $relatedPosts | append . }}
+  {{ end }}
+{{ end }}
+{{ range $relatedPosts }}
+  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+{{ end }}
+</div>
